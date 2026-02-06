@@ -68,16 +68,10 @@ export const RESUME_DATA = {
   ],
   workExperience: [
     {
-      role: "Software Engineer",
-      company: "Tech Company",
-      year: "2024 - Present",
+      role: "Trainee Software Engineer",
+      company: "Aaapthi Technologies",
+      year: "2025 - Present",
       description: "Implemented scalable web applications using Next.js and Tailwind CSS."
-    },
-    {
-      role: "Frontend Developer",
-      company: "Startup Inc",
-      year: "2023 - 2024",
-      description: "Built responsive user interfaces and optimized performance."
     }
   ],
   experience: [
