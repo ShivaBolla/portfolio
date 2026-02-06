@@ -1,26 +1,85 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* User Provided Palette - Dark Red Theme */
+  --black: #0b090a;
+  --charcoal: #161a1d;
+  --dark-red: #660708;
+  --red-700: #a4161a;
+  --red-600: #ba181b;
+  --red-500: #e5383b;
+  --warm-gray: #b1a7a6;
+  --light-gray: #d3d3d3;
+  --off-white: #f5f3f4;
+  --white: #ffffff;
+
+  /* Semantic Colors - Dark Theme with Red Accents */
+  --background: var(--black);
+  --foreground: var(--white);
+  --card: var(--charcoal);
+  --primary: var(--red-500);
+  --secondary: var(--red-600);
+  --accent: var(--red-700);
+  --muted: rgba(22, 26, 29, 0.6);
+  --border: rgba(255, 255, 255, 0.1);
 }
 
 @theme inline {
+  /* New Named Colors */
+  --color-black: var(--black);
+  --color-charcoal: var(--charcoal);
+  --color-dark-red: var(--dark-red);
+  --color-red-700: var(--red-700);
+  --color-red-600: var(--red-600);
+  --color-red-500: var(--red-500);
+  --color-warm-gray: var(--warm-gray);
+  --color-light-gray: var(--light-gray);
+  --color-off-white: var(--off-white);
+  --color-white: var(--white);
+
+  /* Legacy Color Mappings for Backward Compatibility */
+  --color-rich-black: #0b090a;
+  --color-midnight-green: #161a1d;
+  --color-blue-munsell: #e5383b;
+  --color-tiffany-blue: #f5f3f4;
+  --color-citron: #d3d3d3;
+  --color-gamboge: #e5383b;
+  --color-alloy-orange: #e5383b;
+  --color-rufous: #ba181b;
+  --color-fire-engine-red: #a4161a;
+  --color-ruby-red: #660708;
+
+  /* Semantic Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Utilities */
+.glass-panel {
+  background: rgba(22, 26, 29, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--red-500), var(--red-600));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
