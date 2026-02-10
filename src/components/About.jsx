@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { RESUME_DATA } from '@/constants';
-import { User, Mail, MapPin, Phone } from 'lucide-react';
+import { User, MapPin } from 'lucide-react';
 
 const About = () => {
     return (
@@ -35,19 +35,7 @@ const About = () => {
                             {RESUME_DATA.personalInfo.about}
                         </p>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-white/10 pt-8">
-                            <div className="flex items-center gap-3 text-foreground/70 group hover:text-blue-munsell transition-colors">
-                                <Mail className="w-5 h-5 text-gamboge" />
-                                <a href={`mailto:${RESUME_DATA.personalInfo.email}`} className="text-sm hover:underline truncate">
-                                    {RESUME_DATA.personalInfo.email}
-                                </a>
-                            </div>
-                            <div className="flex items-center gap-3 text-foreground/70 group hover:text-blue-munsell transition-colors">
-                                <Phone className="w-5 h-5 text-gamboge" />
-                                <span className="text-sm">
-                                    {RESUME_DATA.personalInfo.phone}
-                                </span>
-                            </div>
+                        <div className="flex justify-center border-t border-white/10 pt-8">
                             <div className="flex items-center gap-3 text-foreground/70 group hover:text-blue-munsell transition-colors">
                                 <MapPin className="w-5 h-5 text-gamboge" />
                                 <span className="text-sm">

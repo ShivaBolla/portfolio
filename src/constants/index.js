@@ -4,13 +4,11 @@ import { Code, Database, Globe, Server, Terminal, Cpu, Layout, FileText } from '
 export const RESUME_DATA = {
   personalInfo: {
     name: "BOLLA SHIVA SHANKAR",
-    email: "shiva********@gmail.com",
-    phone: "+91 9********",
     location: "Warangal, Telangana",
     linkedin: "https://www.linkedin.com/in/shiva-shankar-bolla-34724a257/",
     github: "https://github.com/ShivaBolla",
     resumeLink: "/resume.pdf",
-    about: "BTech graduate in Computer Science and Engineering with strong skills in Python, SQL and web development. Experienced in building real-time projects like a sign language recognition system and tourism website. Quick learner with good communication and teamwork abilities."
+    about: "I am a B.Tech graduate in Computer Science and Engineering with a strong interest in software development and problem solving. I enjoy building applications and continuously improving my programming and development skills.."
   },
   education: [
     {
