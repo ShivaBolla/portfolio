@@ -8,7 +8,7 @@ export const RESUME_DATA = {
     linkedin: "https://www.linkedin.com/in/shiva-shankar-bolla-34724a257/",
     github: "https://github.com/ShivaBolla",
     resumeLink: "/resume.pdf",
-    about: "I am a B.Tech graduate in Computer Science and Engineering with a strong interest in software development, testing, and problem solving. I enjoy building reliable and efficient applications while ensuring quality through effective testing practices. I continuously strive to improve my programming, development, and analytical skills..."
+    about: "I am a B.Tech graduate in Computer Science and Engineering with a strong interest in software development and problem solving. I enjoy building applications and continuously improving my programming and development skills.."
   },
   education: [
     {
