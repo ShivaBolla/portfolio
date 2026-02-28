@@ -209,7 +209,13 @@ const ProjectCard = ({ project, index }) => {
                 <div className="absolute inset-0 bg-grid-white/[0.04] bg-[size:18px_18px]" />
                 <div className="w-28 h-28 border border-blue-munsell/30 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform duration-500 relative z-10 bg-black/30">
                     <span className="text-5xl">
-                        {project.workflow ? '🤖' : project.liveLink ? '🌐' : '🏛️'}
+                        {project.title === "Personal Portfolio Website"
+                            ? '💼'
+                            : project.title === "Tourism Website"
+                                ? '🌐'
+                                : project.workflow
+                                    ? '🤖'
+                                    : '🏛️'}
                     </span>
                 </div>
                 <div className="font-mono text-[10px] text-blue-munsell/50 text-center relative z-10 leading-relaxed px-2">
