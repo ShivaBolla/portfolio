@@ -48,7 +48,7 @@ export const RESUME_DATA = {
     {
       title: "Sign Language Recognition System",
       description: "Developed a real-time Sign Language Recognition System using Machine Learning to accurately interpret American Sign Language (ASL) hand gestures and convert them into corresponding text.",
-      technologies: ["Python", "OpenCV", "CVZone", "MediaPipe", "NumPy", "Math", "Time"],
+      technologies: ["Python", "OpenCV", "CVZone", "MediaPipe", "NumPy", "Math", "Time", "Teachable Machine", "keras_model.h5", "ASL (American Sign Language) Signs Dataset", "VSCode"],
       workflow: [
         {
           step: "Data Collection",
@@ -83,6 +83,18 @@ export const RESUME_DATA = {
         modelFile: "keras_model.h5 (Trained model file for ASL sign classification)",
         dataset: "ASL (American Sign Language) Signs Dataset"
       }
+    },
+
+    {
+      title: "Personal Portfolio Website",
+      description: "Designed and developed a modern, responsive personal portfolio website to showcase my skills, projects, education, and professional experience.",
+      technologies: ["Next.js", "HTML", "CSS", "JavaScript", "Netlify", "VS Code"],
+      details: [
+        "Built with Next.js for fast performance and smooth user experience.",
+        "Showcases projects, skills, education, certifications, and work experience.",
+        "Responsive design that works seamlessly across all devices.",
+        "Deployed and hosted on Netlify with continuous deployment."
+      ]
     },
 
     {

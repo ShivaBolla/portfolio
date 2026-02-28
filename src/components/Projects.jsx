@@ -191,6 +191,16 @@ const ProjectCard = ({ project, index }) => {
                     <button className="flex items-center gap-2 px-5 py-2.5 bg-midnight-green text-white text-sm rounded-lg hover:bg-blue-munsell transition-colors">
                         <Github size={16} /> View Code
                     </button>
+                    {project.liveLink && (
+                        <a
+                            href={project.liveLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 px-5 py-2.5 border border-tiffany-blue/40 text-tiffany-blue text-sm rounded-lg hover:bg-tiffany-blue/10 transition-colors"
+                        >
+                            🌐 Live Demo
+                        </a>
+                    )}
                 </div>
             </div>
 
@@ -198,7 +208,9 @@ const ProjectCard = ({ project, index }) => {
             <div className="w-52 flex-shrink-0 rounded-r-3xl bg-black/40 border-l border-white/5 flex flex-col items-center justify-center p-6 relative overflow-hidden gap-5">
                 <div className="absolute inset-0 bg-grid-white/[0.04] bg-[size:18px_18px]" />
                 <div className="w-28 h-28 border border-blue-munsell/30 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform duration-500 relative z-10 bg-black/30">
-                    <span className="text-5xl">{project.workflow ? '🤖' : '🏛️'}</span>
+                    <span className="text-5xl">
+                        {project.workflow ? '🤖' : project.liveLink ? '🌐' : '🏛️'}
+                    </span>
                 </div>
                 <div className="font-mono text-[10px] text-blue-munsell/50 text-center relative z-10 leading-relaxed px-2">
                     {'// ' + project.title.replace(/\s+/g, '_').toLowerCase()}
