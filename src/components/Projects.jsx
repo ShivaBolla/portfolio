@@ -44,16 +44,17 @@ const Projects = () => {
                 {/* Panel 1: Title */}
                 <div className="flex h-screen w-screen flex-col items-center justify-center bg-black relative border-r border-white/5">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(10,147,150,0.1),transparent)]" />
-                    <h2 className="text-9xl font-bold opacity-10 text-nowrap select-none absolute">
+                    <h2 className="text-6xl md:text-9xl font-bold opacity-10 md:text-nowrap select-none absolute text-center uppercase leading-none md:leading-normal">
                         SELECTED WORKS
                     </h2>
-                    <h2 className="text-6xl md:text-8xl font-bold text-tiffany-blue z-10 relative">
+                    <h2 className="text-5xl md:text-8xl font-bold text-tiffany-blue z-10 relative">
                         PROJECTS
                     </h2>
-                    <p className="max-w-md text-center mt-6 text-foreground/60 z-10">
+                    <p className="max-w-md text-center mt-6 text-foreground/60 z-10 px-4 md:px-0">
                         A showcase of technical implementations and real-world applications.
                         <br />
-                        <span className="text-sm text-gamboge mt-2 block">Scroll Down &rarr; Right</span>
+                        <span className="text-sm text-gamboge mt-2 block hidden md:block">Scroll Down &rarr; Right</span>
+                        <span className="text-sm text-gamboge mt-2 block md:hidden uppercase tracking-widest text-wrap">Swipe Left / Scroll Down to view &rarr;</span>
                     </p>
                 </div>
 
@@ -81,30 +82,30 @@ const ProjectCard = ({ project, index }) => {
     const hasStructured = !!project.workflow;
 
     return (
-        <div className="w-full max-w-5xl h-[78vh] glass-panel rounded-3xl flex flex-col md:flex-row relative overflow-hidden group hover:border-blue-munsell/50 transition-colors">
+        <div className="w-full max-w-5xl h-[85vh] md:h-[78vh] glass-panel rounded-3xl flex flex-col md:flex-row relative overflow-hidden group hover:border-blue-munsell/50 transition-colors">
 
             {/* Glow decoration */}
-            <div className="absolute -top-10 -right-10 w-48 h-48 bg-blue-munsell/20 blur-[70px] rounded-full group-hover:bg-blue-munsell/30 transition-all pointer-events-none" />
+            <div className="absolute -top-10 -right-10 w-32 h-32 md:w-48 md:h-48 bg-blue-munsell/20 blur-[70px] rounded-full group-hover:bg-blue-munsell/30 transition-all pointer-events-none" />
 
             {/* ── LEFT: scrollable content area ── */}
-            <div className="flex flex-col flex-1 relative z-10 overflow-y-auto p-8 md:p-10 scrollbar-thin scrollbar-thumb-blue-munsell/20">
+            <div className="flex flex-col flex-1 relative z-10 overflow-y-auto p-5 md:p-10 scrollbar-thin scrollbar-thumb-blue-munsell/20 pb-0">
 
                 {/* Watermark index */}
-                <span className="text-[6rem] font-bold text-white/[0.04] absolute -top-4 -left-2 select-none leading-none pointer-events-none">
+                <span className="text-[4rem] md:text-[6rem] font-bold text-white/[0.04] absolute -top-2 md:-top-4 -left-1 select-none leading-none pointer-events-none">
                     0{index}
                 </span>
 
                 {/* Project title */}
-                <h3 className="text-2xl md:text-3xl font-bold text-tiffany-blue mb-2 mt-1 leading-tight">
+                <h3 className="text-xl md:text-3xl font-bold text-tiffany-blue mb-2 mt-2 leading-tight">
                     {project.title}
                 </h3>
 
                 {/* Tech stack pills */}
-                <div className="flex flex-wrap gap-1.5 mb-3">
+                <div className="flex flex-wrap gap-1 md:gap-1.5 mb-3 md:mb-4">
                     {project.technologies.map((t, i) => (
                         <span
                             key={i}
-                            className="px-2 py-0.5 text-[10px] rounded-full border border-blue-munsell/30 text-blue-munsell/80 font-mono"
+                            className="px-2 py-0.5 text-[9px] md:text-[10px] rounded-full border border-blue-munsell/30 text-blue-munsell/80 font-mono"
                         >
                             {t}
                         </span>
@@ -112,21 +113,21 @@ const ProjectCard = ({ project, index }) => {
                 </div>
 
                 {/* Description */}
-                <p className="text-foreground/70 text-sm leading-relaxed mb-5">
+                <p className="text-foreground/70 text-xs md:text-sm leading-relaxed mb-4 md:mb-5">
                     {project.description}
                 </p>
 
-                {/* ── STRUCTURED sections (Sign Language project) ── */}
+                {/* ── STRUCTURED sections ── */}
                 {hasStructured ? (
-                    <div className="space-y-5 text-sm">
+                    <div className="space-y-4 md:space-y-5 text-xs md:text-sm">
 
                         {/* Workflow */}
                         <div>
                             <SectionLabel>Workflow</SectionLabel>
-                            <div className="space-y-2.5 pl-1">
+                            <div className="space-y-2 pl-1">
                                 {project.workflow.map((w, i) => (
-                                    <div key={i} className="flex gap-3 items-start">
-                                        <span className="mt-0.5 w-5 h-5 rounded-full bg-midnight-green border border-blue-munsell/40 text-tiffany-blue text-[9px] font-bold flex-shrink-0 flex items-center justify-center">
+                                    <div key={i} className="flex gap-2.5 items-start">
+                                        <span className="mt-0.5 w-4 h-4 md:w-5 md:h-5 rounded-full bg-midnight-green border border-blue-munsell/40 text-tiffany-blue text-[8px] md:text-[9px] font-bold flex-shrink-0 flex items-center justify-center">
                                             {i + 1}
                                         </span>
                                         <p>
@@ -140,14 +141,14 @@ const ProjectCard = ({ project, index }) => {
 
                         {/* Python Libraries Used */}
                         <div>
-                            <SectionLabel>Python Libraries Used</SectionLabel>
+                            <SectionLabel>Python Libraries</SectionLabel>
                             <div className="pl-1 space-y-1">
                                 {project.pythonLibraries.map((lib, i) => (
-                                    <div key={i} className="flex items-baseline gap-2">
-                                        <span className="font-semibold text-tiffany-blue whitespace-nowrap w-20 flex-shrink-0">
+                                    <div key={i} className="flex flex-col md:flex-row md:items-baseline gap-0.5 md:gap-2">
+                                        <span className="font-semibold text-tiffany-blue md:whitespace-nowrap md:w-20 flex-shrink-0">
                                             {lib.name}:
                                         </span>
-                                        <span className="text-foreground/55 text-xs">{lib.role}</span>
+                                        <span className="text-foreground/55 text-[10px] md:text-xs">{lib.role}</span>
                                     </div>
                                 ))}
                             </div>
@@ -156,23 +157,21 @@ const ProjectCard = ({ project, index }) => {
                         {/* Outcome */}
                         <div>
                             <SectionLabel>Outcome</SectionLabel>
-                            <p className="text-foreground/60 pl-1">✅ {project.outcome}</p>
+                            <p className="text-foreground/60 pl-1 text-[11px] md:text-sm">✅ {project.outcome}</p>
                         </div>
 
                         {/* Tools & Technologies */}
-                        <div>
-                            <SectionLabel>Tools &amp; Technologies</SectionLabel>
+                        <div className="hidden sm:block">
+                            <SectionLabel>Tools &amp; Tech</SectionLabel>
                             <div className="pl-1 space-y-1 text-xs font-mono">
                                 {[
                                     { label: 'Language', value: project.toolsAndTech.language },
                                     { label: 'Libraries', value: project.toolsAndTech.libraries },
-                                    { label: 'Other Tools', value: project.toolsAndTech.otherTools },
                                     { label: 'Model File', value: project.toolsAndTech.modelFile },
-                                    { label: 'Dataset', value: project.toolsAndTech.dataset },
                                 ].map(({ label, value }) => (
                                     <div key={label} className="flex gap-2">
                                         <span className="text-foreground/40 w-24 flex-shrink-0">{label}:</span>
-                                        <span className="text-gamboge">{value}</span>
+                                        <span className="text-gamboge line-clamp-1 break-all">{value}</span>
                                     </div>
                                 ))}
                             </div>
@@ -181,22 +180,22 @@ const ProjectCard = ({ project, index }) => {
                     </div>
                 ) : (
                     /* Fallback: simple bullet list for other projects (e.g. Tourism) */
-                    <ul className="space-y-1.5 text-foreground/60 text-sm list-disc pl-5">
+                    <ul className="space-y-1.5 text-foreground/60 text-xs md:text-sm list-disc pl-5">
                         {project.details.map((d, i) => <li key={i}>{d}</li>)}
                     </ul>
                 )}
 
                 {/* CTA button */}
-                <div className="flex gap-3 mt-6">
-                    <button className="flex items-center gap-2 px-5 py-2.5 bg-midnight-green text-white text-sm rounded-lg hover:bg-blue-munsell transition-colors">
-                        <Github size={16} /> View Code
+                <div className="flex flex-wrap gap-2 md:gap-3 mt-6 pb-6 mt-auto">
+                    <button className="flex items-center gap-2 px-4 py-2 bg-midnight-green text-white text-xs md:text-sm rounded-lg hover:bg-blue-munsell transition-colors">
+                        <Github size={14} className="md:w-4 md:h-4" /> View Code
                     </button>
                     {project.liveLink && (
                         <a
                             href={project.liveLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-5 py-2.5 border border-tiffany-blue/40 text-tiffany-blue text-sm rounded-lg hover:bg-tiffany-blue/10 transition-colors"
+                            className="flex items-center gap-2 px-4 py-2 border border-tiffany-blue/40 text-tiffany-blue text-xs md:text-sm rounded-lg hover:bg-tiffany-blue/10 transition-colors"
                         >
                             🌐 Live Demo
                         </a>
@@ -204,11 +203,11 @@ const ProjectCard = ({ project, index }) => {
                 </div>
             </div>
 
-            {/* ── RIGHT: visual accent panel ── */}
-            <div className="w-52 flex-shrink-0 rounded-r-3xl bg-black/40 border-l border-white/5 flex flex-col items-center justify-center p-6 relative overflow-hidden gap-5">
+            {/* ── RIGHT/BOTTOM: visual accent panel ── */}
+            <div className="w-full md:w-52 h-24 md:h-auto flex-shrink-0 rounded-b-3xl md:rounded-bl-none md:rounded-r-3xl bg-black/40 border-t md:border-t-0 md:border-l border-white/5 flex flex-row md:flex-col items-center justify-center p-4 md:p-6 relative overflow-hidden gap-4 md:gap-5">
                 <div className="absolute inset-0 bg-grid-white/[0.04] bg-[size:18px_18px]" />
-                <div className="w-28 h-28 border border-blue-munsell/30 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform duration-500 relative z-10 bg-black/30">
-                    <span className="text-5xl">
+                <div className="w-14 h-14 md:w-28 md:h-28 border border-blue-munsell/30 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform duration-500 relative z-10 bg-black/30 shrink-0">
+                    <span className="text-3xl md:text-5xl">
                         {project.title === "Personal Portfolio Website"
                             ? '💼'
                             : project.title === "Tourism Website"
@@ -218,7 +217,7 @@ const ProjectCard = ({ project, index }) => {
                                     : '🏛️'}
                     </span>
                 </div>
-                <div className="font-mono text-[10px] text-blue-munsell/50 text-center relative z-10 leading-relaxed px-2">
+                <div className="font-mono text-[9px] md:text-[10px] text-blue-munsell/50 md:text-center relative z-10 leading-relaxed px-2 line-clamp-2 md:line-clamp-none">
                     {'// ' + project.title.replace(/\s+/g, '_').toLowerCase()}
                 </div>
             </div>

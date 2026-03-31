@@ -12,7 +12,10 @@ const FloatingDock = () => {
         <motion.div
             onMouseMove={(e) => mouseX.set(e.clientX)}
             onMouseLeave={() => mouseX.set(Infinity)}
-            className="fixed bottom-8 left-1/2 -translate-x-1/2 mx-auto flex h-16 items-end gap-4 rounded-2xl bg-midnight-green/30 px-4 pb-3 backdrop-blur-md border border-white/10 z-50 shadow-2xl"
+            onTouchStart={(e) => mouseX.set(e.touches[0].clientX)}
+            onTouchMove={(e) => mouseX.set(e.touches[0].clientX)}
+            onTouchEnd={() => mouseX.set(Infinity)}
+            className="fixed bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 mx-auto flex h-14 md:h-16 items-end gap-2 md:gap-4 rounded-2xl bg-midnight-green/30 px-2 md:px-4 pb-2 md:pb-3 backdrop-blur-md border border-white/10 z-50 shadow-2xl scale-[0.80] sm:scale-[0.9] md:scale-100 origin-bottom flex-nowrap w-max max-w-[120vw]"
         >
             <Icon icon={<Home size={20} />} href="#home" mouseX={mouseX} label="Home" />
             <Icon icon={<User size={20} />} href="#about" mouseX={mouseX} label="About" />
