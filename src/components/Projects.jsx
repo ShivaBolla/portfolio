@@ -52,9 +52,6 @@ const Projects = () => {
                     </h2>
                     <p className="max-w-md text-center mt-6 text-foreground/60 z-10 px-4 md:px-0">
                         A showcase of technical implementations and real-world applications.
-                        <br />
-                        <span className="text-sm text-gamboge mt-2 block hidden md:block">Scroll Down &rarr; Right</span>
-                        <span className="text-sm text-gamboge mt-2 block md:hidden uppercase tracking-widest text-wrap">Swipe Left / Scroll Down to view &rarr;</span>
                     </p>
                 </div>
 

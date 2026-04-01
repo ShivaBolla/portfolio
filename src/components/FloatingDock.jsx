@@ -53,9 +53,7 @@ function Icon({ mouseX, icon, href, label, external }) {
             <motion.div
                 ref={ref}
                 style={{ width }}
-                className={`aspect-square flex items-center justify-center rounded-full border shadow-inner transition-colors duration-200 group relative
-                    ${external && label !== 'Resume' ? 'bg-blue-munsell/20 border-blue-munsell/50 hover:bg-blue-munsell text-tiffany-blue hover:text-rich-black hover:shadow-[0_0_20px_rgba(10,147,150,0.5)]'
-                        : 'bg-midnight-green/80 border-white/5 hover:bg-blue-munsell/80 text-white/80 hover:text-white'}`}
+                className="aspect-square flex items-center justify-center rounded-full border shadow-inner transition-colors duration-200 group relative bg-blue-munsell/20 border-blue-munsell/50 hover:bg-blue-munsell text-tiffany-blue hover:text-rich-black hover:shadow-[0_0_20px_rgba(10,147,150,0.5)]"
             >
                 <span className="transition-colors">
                     {icon}
