@@ -53,6 +53,12 @@ const Projects = () => {
                     <p className="max-w-md text-center mt-6 text-foreground/60 z-10 px-4 md:px-0">
                         A showcase of technical implementations and real-world applications.
                     </p>
+                    <div className="mt-8 flex flex-col items-center gap-1 animate-bounce z-10">
+                        <span className="text-xs tracking-widest uppercase text-red-500">Scroll Down</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-red-500">
+                            <path d="M8 3v10M8 13l-4-4M8 13l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                    </div>
                 </div>
 
                 {/* Project Panels */}
