@@ -120,7 +120,7 @@ export const RESUME_DATA = {
       role: "Trainee Software Engineer",
       company: "Aapthi Technologies",
       year: "Oct 2025 - Apr 2026",
-      description: "Internship"
+      description: "Internship · 7 months"
     }
   ],
   experience: [
