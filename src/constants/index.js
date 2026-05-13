@@ -111,7 +111,7 @@ export const RESUME_DATA = {
   ],
   workExperience: [
     {
-      role: "Software Engineer",
+      role: "Full Stack Developer",
       company: "Aapthi Technologies",
       year: "May 2026 - Present",
       description: "Full-time"
