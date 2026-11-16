@@ -15,27 +15,39 @@ const Projects = () => {
     const totalPanels = projects.length + 1;
 
     useEffect(() => {
-        const pin = gsap.fromTo(
-            sectionRef.current,
-            { translateX: 0 },
-            {
-                translateX: `-${(totalPanels - 1) * 100}vw`,
-                ease: "none",
-                duration: 1,
-                scrollTrigger: {
-                    trigger: triggerRef.current,
-                    start: "top top",
-                    end: `+=${totalPanels * 1000}`,
-                    scrub: 0.6,
-                    pin: true,
-                },
-            }
-        );
-        return () => { pin.kill(); };
+        const ctx = gsap.context(() => {
+            gsap.fromTo(
+                sectionRef.current,
+                { translateX: 0 },
+                {
+                    translateX: `-${(totalPanels - 1) * 100}vw`,
+                    ease: "none",
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: triggerRef.current,
+                        start: "top top",
+                        end: () => `+=${totalPanels * 1000}`,
+                        scrub: 0.6,
+                        pin: true,
+                        anticipatePin: 1,
+                        invalidateOnRefresh: true,
+                    },
+                }
+            );
+        }, triggerRef);
+
+        const timer = setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 150);
+
+        return () => {
+            clearTimeout(timer);
+            ctx.revert();
+        };
     }, [totalPanels]);
 
     return (
-        <section className="overflow-hidden bg-black" ref={triggerRef}>
+        <section className="overflow-hidden bg-black w-full relative" ref={triggerRef}>
             <div
                 ref={sectionRef}
                 className="flex h-screen flex-row relative"
@@ -95,7 +107,7 @@ const ProjectCard = ({ project, index }) => {
 
                 {/* Watermark index */}
                 <span className="text-[4rem] md:text-[6rem] font-bold text-white/[0.04] absolute -top-2 md:-top-4 -left-1 select-none leading-none pointer-events-none">
-                    0{index}
+                    {index < 10 ? `0${index}` : index}
                 </span>
 
                 {/* Project title */}
@@ -182,9 +194,22 @@ const ProjectCard = ({ project, index }) => {
 
                     </div>
                 ) : (
-                    /* Fallback: simple bullet list for other projects (e.g. Tourism) */
-                    <ul className="space-y-1.5 text-foreground/60 text-xs md:text-sm list-disc pl-5">
-                        {project.details.map((d, i) => <li key={i}>{d}</li>)}
+                    /* Fallback: bullet list for other projects */
+                    <ul className="space-y-2 text-foreground/70 text-xs md:text-sm list-disc pl-5">
+                        {project.details.map((d, i) => {
+                            const colonIndex = d.indexOf(': ');
+                            if (colonIndex !== -1 && colonIndex < 45) {
+                                const heading = d.slice(0, colonIndex);
+                                const rest = d.slice(colonIndex + 2);
+                                return (
+                                    <li key={i} className="leading-relaxed">
+                                        <strong className="text-foreground/90 font-semibold">{heading}: </strong>
+                                        <span>{rest}</span>
+                                    </li>
+                                );
+                            }
+                            return <li key={i} className="leading-relaxed">{d}</li>;
+                        })}
                     </ul>
                 )}
 
@@ -211,17 +236,23 @@ const ProjectCard = ({ project, index }) => {
                 <div className="absolute inset-0 bg-grid-white/[0.04] bg-[size:18px_18px]" />
                 <div className="w-14 h-14 md:w-28 md:h-28 border border-blue-munsell/30 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform duration-500 relative z-10 bg-black/30 shrink-0">
                     <span className="text-3xl md:text-5xl">
-                        {project.title === "Personal Portfolio Website"
-                            ? '💼'
-                            : project.title === "Tourism Website"
-                                ? '🌐'
-                                : project.workflow
-                                    ? '🤖'
-                                    : '🏛️'}
+                        {project.title.includes("Drama") || project.title.includes("OTT")
+                            ? '🎬'
+                            : project.title.includes("Tracker")
+                                ? '📍'
+                                : project.title.includes("Snap Dance") || project.title.includes("Dance")
+                                    ? '💃'
+                                    : project.title.includes("Analytics") || project.title.includes("Stats")
+                                        ? '📊'
+                                        : project.title === "Personal Portfolio Website"
+                                            ? '💼'
+                                            : project.workflow
+                                                ? '🤖'
+                                                : '💻'}
                     </span>
                 </div>
                 <div className="font-mono text-[9px] md:text-[10px] text-blue-munsell/50 md:text-center relative z-10 leading-relaxed px-2 line-clamp-2 md:line-clamp-none">
-                    {'// ' + project.title.replace(/\s+/g, '_').toLowerCase()}
+                    {'// ' + (project.slug || project.title.replace(/\s+/g, '_').toLowerCase())}
                 </div>
             </div>
         </div>

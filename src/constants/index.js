@@ -48,6 +48,61 @@ export const RESUME_DATA = {
   ],
   projects: [
     {
+      title: "Drama Bits – OTT Streaming & CMS Platform",
+      slug: "drama_streaming_cms_platform",
+      description: "Designed and built a full-stack short-drama streaming and comprehensive content management system (CMS) supporting adaptive video streaming, multi-language localization, and role-based administration.",
+      technologies: ["Next.js", "NestJS", "TypeScript", "PostgreSQL", "Prisma", "AWS S3", "FFmpeg", "HLS.js", "Tailwind CSS", "Ant Design"],
+      details: [
+        "Built a scalable full-stack architecture with Next.js (App Router) on the frontend and NestJS with Prisma & PostgreSQL on the backend.",
+        "Integrated end-to-end video pipeline using FFmpeg for video processing and HLS packaging with direct AWS S3 presigned URL storage.",
+        "Developed adaptive video playback with hls.js for seamless multi-resolution streaming across web and mobile devices.",
+        "Implemented an enterprise Admin CMS covering Series/Episode management, categories, multi-language localization, analytics, and monetization.",
+        "Engineered secure authentication & RBAC with JWT, role-based permissions, and user profile management."
+      ]
+    },
+
+    {
+      title: "Family Tracker API & Dashboard",
+      slug: "family_tracker_api_dashboard",
+      description: "Designed and developed a real-time family safety and tracking platform to monitor live locations, manage family circles, and enable instant group and private communication.",
+      technologies: ["Next.js", "NestJS", "TypeScript", "Socket.io", "PostgreSQL", "Prisma", "Firebase", "AWS S3", "Tailwind CSS"],
+      details: [
+        "Built with Next.js and NestJS for high-performance REST APIs and real-time WebSocket communication.",
+        "Implemented live GPS location tracking, daily route history, and family circle management.",
+        "Features real-time 1-on-1 and group chat with presence status powered by Socket.IO.",
+        "Integrated Firebase Cloud Messaging (FCM) for push alerts and AWS S3 for media attachments.",
+        "Designed an interactive admin dashboard with Ant Design and Recharts to monitor user activity and system metrics."
+      ]
+    },
+
+    {
+      title: "Snap Dance – AI Video Generation & Animation Backend",
+      slug: "snap_dance_ai_video_backend",
+      description: "Architected and developed a scalable, asynchronous backend infrastructure for an AI-powered face dance and video animation mobile platform, handling automated processing queues, monetization, and safety filters.",
+      technologies: ["Python", "FastAPI", "MongoDB", "RabbitMQ", "AWS S3", "Firebase FCM", "NudeNet (ONNX)", "Docker"],
+      details: [
+        "High-Throughput Queue Processing: Built an asynchronous job processing pipeline using RabbitMQ and dedicated background workers to handle heavy AI video generation and media transformations reliably without blocking API endpoints.",
+        "Automated AI Content Moderation: Integrated NudeNet with ONNX runtime for on-the-fly automated NSFW and safety filtering on incoming user media before triggering generation models.",
+        "Cloud Storage & Streaming: Streamlined asset ingestion, processing, and delivery with AWS S3 and optimized Base64/binary streaming endpoints.",
+        "Push Notifications & App Security: Integrated Firebase Cloud Messaging (FCM) for real-time video generation completion alerts and enforced Firebase App Check token validation for anti-abuse protection.",
+        "In-App Monetization & Ledger: Implemented webhook handlers for RevenueCat subscription lifecycles, user access control, and an atomic transactional coin credit system stored in MongoDB."
+      ]
+    },
+
+    {
+      title: "Client Analytics & App Stats Dashboard",
+      slug: "python_dashboard_client_stats",
+      description: "Designed and developed a robust full-stack analytics and monitoring dashboard to track, visualize, and manage client mobile application usage statistics and feature metrics.",
+      technologies: ["Python", "Django", "MongoDB", "JavaScript", "HTML/CSS", "Gunicorn"],
+      details: [
+        "Built with Django and MongoDB utilizing aggregation pipelines for fast multi-dimensional metric analysis.",
+        "Implemented role-based access control (Admin/User), app assignment management, and automated session timeouts.",
+        "Interactive visualization system with multi-tier filters for date ranges, OS platforms, Android versions, and geo-locations.",
+        "Configured for scalable production deployment using Gunicorn and environment-driven configurations."
+      ]
+    },
+
+    {
       title: "Sign Language Recognition System",
       description: "Developed a real-time Sign Language Recognition System using Machine Learning to accurately interpret American Sign Language (ASL) hand gestures and convert them into corresponding text.",
       technologies: ["Python", "OpenCV", "CVZone", "MediaPipe", "NumPy", "Math", "Time", "Teachable Machine", "keras_model.h5", "ASL (American Sign Language) Signs Dataset", "VSCode"],
@@ -96,17 +151,6 @@ export const RESUME_DATA = {
         "Showcases projects, skills, education, certifications, and work experience.",
         "Responsive design that works seamlessly across all devices.",
         "Deployed and hosted on Netlify with continuous deployment."
-      ]
-    },
-
-    {
-      title: "Tourism Website",
-      description: "Fully responsive tourism website showcasing Telangana’s cultural heritage.",
-      technologies: ["HTML", "CSS", "JavaScript", "VS Code"],
-      details: [
-        "Structured content with HTML and visually appealing layouts with CSS.",
-        "JavaScript for interactivity (theme toggling, animations).",
-        "Responsive design for method/mobile/desktop."
       ]
     }
   ],
